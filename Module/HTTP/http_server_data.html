@@ -1,0 +1,53 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p> {{x[0]}}</p>
+
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("https://jsonplaceholder.typicode.com/users").then(function(response)
+  {
+  
+  $scope.x = response.data;
+    
+  });
+});
+
+</script>
+
+<br>
+<br>
+<script>
+
+  var myObject = {'name':'Kasun', 'address':'columbo','age': '29'}
+
+  var count = Object.keys(myObject).length;
+  //console.log(count);
+  document.write(count+"<br>");
+  
+  
+  var m = { "Author1":[
+								
+								 {"name" : "Guhan", "age" : 27},
+			
+			                     {"name" : "Anbu", "age"  : 25}
+								 
+								],
+			
+			           "Author2":[
+					                {"name" : "Tamil", "age" : 22},
+					                {"name" : "Raja", "age"  : 25}
+								 ]
+				    };
+	var count = Object.keys(m.Author1).length;
+	document.write(count);
+  
+</script>
+
+</body>
+</html>

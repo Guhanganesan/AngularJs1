@@ -1,0 +1,36 @@
+<script>
+    // Creating an Object using constructor function
+	function Employee(x,y){
+	        this.x = x;
+			this.y = y;
+			this.getValue = function()
+			{
+			    return this.x+this.y;
+			}
+		}
+         z = new Employee(100,200);
+		 document.write(z.x+"<br>");
+		 document.write(z.y+"<br>");
+		 document.write(z.getValue()+"<br>");
+</script>
+<script>
+    
+	Employee = {   x:222, y:333, z:function(){return this.x+this.y;}  }
+         
+		 document.write(Employee.x+"<br>");
+		 document.write(Employee.y+"<br>");
+		 document.write(Employee.z()+"<br>");
+		 
+		 myvar = Employee;
+		 document.write(myvar.x+"<br>");
+		 myvar.x=444;
+		 document.write(myvar.x+"<br>");
+		 
+		 emp = function()
+		 {
+		    this.name="Guhan";
+		 }
+		 d = new emp();
+		 document.write(d.name+"<br>");
+</script>
+

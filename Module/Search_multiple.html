@@ -1,0 +1,33 @@
+<html ng-app="myModule">
+<head>
+<script src="angular.min.js"></script>
+<script src="Search_multiple.js"></script>
+</head>
+<style>
+     table,td, th {border:1px solid blue; border-collapse:collapse;}
+	 th,td{text-align:center;padding:5px;}
+</style>
+<body ng-controller="myController">
+<b>
+Search Name: <input type="text" placeholder="seach name here" ng-model="searchText.name"/>   
+Search Salary: <input type="text" placeholder="seach salary here" ng-model="searchText.salary"/> 
+</b>
+<br>
+<br>  
+<table>                                             
+<thead><tr> <th>Name</th><th>DOB </th><th>Gender</th><th>Salary</th><th>Bonus</th>
+</tr></thead>
+<tbody>
+<tr ng-repeat="x1 in employees | filter:searchText:exactMatch"> 
+ 
+    <td> {{x1.name}} </td>
+    <td> {{x1.DOB | date:"dd/MM/yyyy"}}</td>
+    <td> {{x1.gender}}</td>
+    <td> {{x1.salary}}</td>
+	<td> {{x1.Bonus}}</td>
+    
+</tr> </tbody>
+</table>
+</body>
+</html>
+         

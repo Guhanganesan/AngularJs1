@@ -1,0 +1,35 @@
+<html ng-app="myModule">
+<head>
+<script src="angular.min.js"></script>
+<script src="Filters.js"></script>
+</head>
+<style>
+     table,td, th {border:1px solid blue; border-collapse:collapse;}
+	 th,td{text-align:center;padding:5px;}
+</style>
+<body ng-controller="myController">
+<input type="number" step="1" min="0" max="5" ng-model="dataLimit" />
+
+<table>
+<thead> <tr> <th>Name </th><th>DOB </th><th>Gender </th> <th>Salary</th> <th>Bonus</th></tr></thead>
+<tbody>
+<tr ng-repeat="x1 in employees | limitTo:dataLimit"> 
+ <!-- <tr ng-repeat="x1 in employees | limitTo:2:2"> 2-star,2-row, -->
+    <td> {{x1.name | uppercase}} </td>
+    <td> {{x1.DOB | date:"dd/MM/yyyy"}}</td>
+    <td> {{x1.gender | lowercase}}</td>
+    <td> {{x1.salary | number:2}}</td>
+	<td> {{x1.Bonus | currency:"$":1}}</td>
+    
+</tr> </tbody>
+</table>
+</body>
+</html>
+
+
+
+npm install ng2-filter-pipe --save
+
+
+
+

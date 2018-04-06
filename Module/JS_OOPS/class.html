@@ -1,0 +1,63 @@
+<html>
+<script>
+function myFunction() {  // Class and constructor(OOPS)
+		           alert("This is a class");   }
+                //var x = new myFunction();
+		        myFunction();
+</script>
+<script>
+function myFunction1(x) {
+  this.x = x;   alert('yes');   }
+var m1 = new myFunction1(100);
+var m2 = new myFunction1(200);
+alert( m1.x);
+alert( m2.x);
+</script>
+<script>
+function myFunction2(x) {
+  this.x = x;
+  alert('yes');
+}
+myFunction2.m= function()
+{
+  alert ('hello');
+};
+var a1 = new myFunction2(300);
+var a2 = new myFunction2(400);
+myFunction2.m();
+alert(a1.x); 
+alert(a2.x);
+</script>
+<script>
+    // Creating an Object using constructor function
+	function Employee(x,y){
+	        this.x = x;
+			this.y = y;
+			this.getValue = function()
+			{
+			    return this.x+this.y;
+			}
+		}
+         z = new Employee(100,200);
+		 document.write(z.x+"<br>");
+		 document.write(z.y+"<br>");
+		 document.write(z.getValue()+"<br>");
+</script>
+<script>
+       	 Employee = {   x:222, y:333, z:function(){return this.x+this.y;}  }
+   		 document.write(Employee.x+"<br>");
+		 document.write(Employee.y+"<br>");
+		 document.write(Employee.z()+"<br>");
+		 
+		 myvar = Employee;
+		 document.write(myvar.x+"<br>");
+		 myvar.x=444;
+		 document.write(myvar.x+"<br>");
+		 emp = function()
+		 {
+		    this.name="Guhan";
+		 }
+		 d = new emp();
+		 document.write(d.name+"<br>");
+</script>
+</html>

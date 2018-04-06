@@ -1,0 +1,40 @@
+<html ng-app="myModule">
+<head>
+<script src="angular.min.js"></script>
+<script src="Sorting.js"></script>
+</head>
+<style>
+     table,td, th {border:1px solid blue; border-collapse:collapse;}
+	 th,td{text-align:center;padding:5px;}
+</style>
+<body ng-controller="myController">
+
+   Order By:  <select ng-model="sortColumn" >
+           <option value="+name"> NameASC </option>
+           <option value="+DOB"> DOBASC </option>
+           <option value="+gender">GenderASC </option>
+           <option value="-salary">SalaryDSC </option>
+           <option value="-Bonus">BonusDSC </option>
+     </select>
+<br><br>
+<table>
+<thead><tr> <th>Name</th><th>DOB </th><th>Gender</th><th>Salary</th><th>Bonus</th>
+</tr></thead>
+<tbody>
+<tr ng-repeat="x1 in employees | orderBy:sortColumn"> 
+ <!--  <tr ng-repeat="x1 in employees | orderBy: 'name'">  
+      (OR) <tr ng-repeat="x1 in employees | orderBy:'name':true">  
+      (OR) <tr ng-repeat="x1 in employees | orderBy:'name':false">  
+      (OR) <tr ng-repeat="x1 in employees | orderBy:'+name'">  
+      (OR) <tr ng-repeat="x1 in employees | orderBy:'-name'">  -->
+    <td> {{x1.name | uppercase}} </td>
+    <td> {{x1.DOB | date:"dd/MM/yyyy"}}</td>
+    <td> {{x1.gender | lowercase}}</td>
+    <td> {{x1.salary | number:2}}</td>
+	<td> {{x1.Bonus | currency:"$":1}}</td>
+    
+</tr> </tbody>
+</table>
+</body>
+</html>
+

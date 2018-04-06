@@ -1,0 +1,26 @@
+<html ng-app="myModule">
+<head>
+<script src="angular.min.js"></script>
+<script src="Services.js"></script>
+</head>
+<style>
+     table,td, th {border:1px solid blue; border-collapse:collapse;}
+	 th,td{text-align:center;padding:5px;}
+</style>
+<body ng-controller="myController">
+<table>
+      <tr> 
+	  <td> Your Input:</td> 
+	  <td> <input type="text" ng-model="input"/></td>
+	  </tr>
+	  <tr> 
+	  <td> Your Output:</td> 
+	  <td> <input type="text" ng-model="output"/></td>
+	  </tr>
+	  <tr><td> </td>
+	  <td> <input type="button" ng-click="transformString(input)" value="process"/>  </td>
+	  </tr>
+</table>
+</body>
+</html>
+

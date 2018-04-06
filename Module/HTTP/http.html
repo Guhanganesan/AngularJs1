@@ -1,0 +1,22 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl"> 
+<p>{{x[0]}}</p>
+<p>{{x[1]}}</p>
+<p>{{x[2]}}</p>
+<p>{{x[3]}}</p>
+<ul ng-repeat="y in x">
+  <li >
+    {{y}}
+  </li>
+</ul>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("4.php").then(function(response){$scope.x = response.data;});
+});
+</script>
+</body>
+</html>

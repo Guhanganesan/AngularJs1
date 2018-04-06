@@ -1,0 +1,37 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<style>
+        table,td {border:1px solid blue; border-collapse:collapse;}
+		thead{background-color:#143E3B;color:white;}
+		td,th{width:100px; height:50px; text-align:center;}
+		b{background-color:#329065;color:white;}
+		input{background-color:#D1DF2D;color:blue;}
+</style>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl"> 
+<b>
+Search First Name: <input type="text" placeholder="seach fname here" ng-model="searchText.firstname"/>   
+Search Last Name: <input type="text" placeholder="seach lname here" ng-model="searchText.lastname"/> 
+</b>
+<br>
+<br>  
+<table ng-init="c1='#84DD9D';c2='#BAD0DC';c3='#DA808F';">                                             
+<thead><tr> <th>First Name</th><th>Last Name </th><th>Email</th>
+</tr></thead>
+<tbody>
+<tr ng-repeat="x1 in x | filter:searchText:exactMatch"> 
+ 
+    <td ng-if="c1" style="background-color:{{c1}};"> {{x1.firstname}} </td>
+    <td ng-if="c2" style="background-color:{{c2}};"> {{x1.lastname}} </td>
+    <td ng-if="c3" style="background-color:{{c3}};"> {{x1.email}} </td>
+</tr> </tbody>
+</table>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("table.php").then(function(response){$scope.x = response.data;});
+});
+</script>
+</body>
+</html>

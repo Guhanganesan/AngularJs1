@@ -1,0 +1,27 @@
+<html>
+<title>xyz</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p> {{x[0]}}</p>
+
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("http://guhanraghavan.000webhostapp.com/raghavan/noolagam.php").then(function(response)
+  {
+  
+  $scope.x = response.data;
+    
+  });
+});
+
+</script>
+</body>
+</html>
